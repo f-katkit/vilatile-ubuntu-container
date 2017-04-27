@@ -13,4 +13,4 @@ RUN apt-get update -q -y \
   && mkdir /var/run/sshd
 
 EXPOSE 22
-CMD /usr/sbin/sshd -D && watch -n 30 cat /home/ubuntu/.ssh/id_dsa
+CMD /usr/sbin/sshd -D & watch -n 30 cat /home/ubuntu/.ssh/id_dsa
