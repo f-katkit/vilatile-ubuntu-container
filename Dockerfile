@@ -9,7 +9,8 @@ RUN apt-get update -q -y \
   && gpasswd -a ubuntu sudo \
   && echo "ubuntu ALL=NOPASSWD: ALL" >> /etc/sudoers \
   && sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config \
-  && su -c "/usr/local/bin/generate-ssh-keyfiles.sh" ubuntu
+  && su -c "/usr/local/bin/generate-ssh-keyfiles.sh" ubuntu \
+  && mkdir /var/run/sshd
 
 EXPOSE 22
 CMD /usr/sbin/sshd -D | watch -n 30 cat /home/ubuntu/.ssh/id_dsa
