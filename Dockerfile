@@ -11,7 +11,7 @@ RUN apt-get update -q -y \
   && echo "ubuntu ALL=NOPASSWD: ALL" >> /etc/sudoers \
   && sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config \
   && su -c "/usr/local/bin/generate-ssh-keyfiles.sh" ubuntu \
-  && mkdir /var/run/sshd \
+  && mkdir /var/run/sshd
 
 EXPOSE 22
 CMD /usr/sbin/service cron start && /usr/sbin/service ssh start && /bin/sh /usr/local/bin/display_secret.sh
