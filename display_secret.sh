@@ -6,8 +6,8 @@ while :
       echo "ERROR : File not found /home/ubuntu/.ssh/id_dsa"
     else
       cat /home/ubuntu/.ssh/id_dsa
-
+      clear
       echo "\n\n set secret to ~/.ssh/ directory"
     fi
-    sleep 99999999
+    sleep 15
   done
